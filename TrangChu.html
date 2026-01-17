@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-UA-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Thời trang-VTQ</title>
+</head>
+<body>
+<div class="banner-sale">
+    Ưu đãi độc quyền. Giảm
+    <span class="discount">30 - 50%</span>
+    cho những ai có ngày sinh trùng với VTQ Fashion.
+  </div>
+</div>
+  <div class="wrap"> 
+    <header class="topbar">
+      <div class="logo"><div class="mark">VTQ</div><h1>VTQ Fashion</h1></div>
+      <div class="search">
+    <input 
+        type="text" 
+        id="searchInput"
+        placeholder="Tìm kiếm sản phẩm, ví dụ: giày, áo..."
+    >
+    <button onclick="goSearch()">Search</button>
+</div>
+      <div class="icons">
+        <a href="ĐangNhap.html" class="btn btn-success">Đăng nhập</a>
+      <div class="ic">
+        <a href="GioHang.html">🛒Giỏ hàng(<span id="cart-count">0</span>)</a></div>
+</div>
+<!-- POPUP GIỎ HÀNG -->
+<div id="cart-popup" class="cart-popup">
+  <h4>Giỏ hàng</h4>
+  <ul id="popup-cart"></ul>
+  <a href="GioHang.html">Xem giỏ hàng</a>
+</div>
+    </header>
+  
+  <nav class="nav">
+    <a href="TrangChu.html">Trang chủ</a>
+    <a href="GioiThieu.html">Giới thiệu</a>
+    <a href="SanPham.html">Sản phẩm</a>
+    <a href="TinTuc.html">Tin tức</a>
+    <a href="LienHe.html">Liên hệ</a>
+  </nav>
+
+    <section class="hero">
+      <div class="left">
+        <div class="title">CẦNG MUA CÀNG GIẢM</div>
+        <div class="subtitle">Thời gian: 01/1 - 15/1 — Giảm tới 50% cho nhiều mặt hàng</div>
+        <a class="cta" href="#">Xem chi tiết</a>
+      </div>
+  <div class="product-list">
+
+    <div class="product-item">
+      <a href="Chitietsanpham.html">
+        <img src="images/giaysneaker.png" alt="Giày 1">
+        <h3>Giày thể thao sneaker nam</h3>
+        <p class="price"><div class="new">365.000đ</div></p>
+        <button class="btn buy-btn">Mua ngay</button>
+      </a>
+    </div>
+
+    <div class="product-item">
+        <img src="images/ao-khoac-bomber.png" alt="">
+        <h3>Áo khoác bomber da unisex chống gió</h3>
+        <p class="price"><div class="new">260.000đ</div></p>
+       <button class="btn buy-btn"
+onclick="addToCart(1, 'Áo khoác bomber da unisex chống gió', 260000, 'images/ao-khoac-bomber.png')">
+Mua ngay
+</button>
+
+    </div>
+
+    <div class="product-item">
+        <img src="images/giay-da-bóng.png" alt="">
+        <h3>Giày nam da Bóng buộc dây Cao Cấp</h3>
+        <p class="price"><div class="new">299.000đ</div></p>
+        <button class="btn buy-btn">Mua ngay</button>
+    </div>
+
+    <div class="product-item">
+      <img src="images/đh-den-led.png" alt="">
+      <h3>Đồng Hồ Đeo Tay Điện Tử Đèn LED Mặt Vuông Màu Trơn</h3>
+      <p class="price"><div class="new">420.000đ</div></p>
+      <button class="btn buy-btn">Mua ngay</button>
+    </div>
+
+</div>
+
+<div class="right" role="img" aria-label="banner"></div>
+</section>
+
+    <section class="categories" aria-label="danh mục">
+      <div class="cat" onclick="filterCategory('ao')">
+  <img src="images/áo.png">
+  Áo
+</div>
+      <div class="cat"><img src="images/quần.png"><p>Quần</p></div>
+      <div class="cat"><img src="images/giày.png"><p>Giày</p></div>
+      <div class="cat"><img src="images/balo.png"><p>Balo</p></div>
+      <div class="cat"><img src="images/phụ-kiện.png"><p>Phụ kiện</p></div>
+      <div class="cat"><img src="images/mũ.png"><p>Mũ</p></div>
+      <div class="cat"><img src="images/đồ-bơi.png"><p>Đồ bơi</p></div>
+      <div class="cat"><img src="images/kinh-mắt.png"><p>Kính mắt</p></div>
+      <div class="cat"><img src="images/túi-sách.png"><p>Túi sách</p></div>
+    </section>
+
+    <section class="section">
+      <div class="heading">
+        <h2>BẢO ĐẠM GIÁ TỐT - ĐANG SALE</h2>
+        <div>Xem thêm &raquo;</div>
+      </div>
+
+      <div class="products">
+        <article class="card">
+          <div class="badges"><span class="badge">Hot</span><span style="font-size:12px;color:#1b9b55">-50%</span></div>
+           <img src="images/giày-chạy-bộ nam.png" alt="product">
+           <h3>Giày chạy bộ nam</h3>
+          <div class="price"><div class="new">399.000₫</div><div class="old">799.000₫</div></div>
+          <div class="meta"><span>Miễn phí vận chuyển</span><button class="btn buy-btn">Mua ngay</button></div>
+        </article>
+
+        <article class="card">
+          <div class="badges"><span class="badge">SALE</span></div>
+           <img src="images/balo-thể-thao.png" alt="product">
+           <h3>Balo thể thao - Gọn nhẹ</h3>
+          <div class="price"><div class="new">269.000₫</div><div class="old">499.000₫</div></div>
+          <div class="meta"><span>1 đổi 1 trong 7 ngày</span><button class="btn buy-btn">Mua ngay</button></div>
+        </article>
+
+        <article class="card">
+          <div class="badges"><span class="badge">Giảm</span></div>
+           <img src="images/bộ-quần-áo-tt.png" alt="product">
+           <h3>Bộ quần áo thể thao nữ - kiểu dáng thời trang</h3>
+          <div class="price"><div class="new">129.000₫</div><div class="old">199.000₫</div></div>
+          <div class="meta"><span>Hàng chính hãng</span><button class="btn buy-btn">Mua ngay</button></div>
+        </article>
+
+        <article class="card">
+          <div class="badges"><span class="badge">NEW</span></div>
+           <img src="images/quần-short-nam.png" alt="product">
+           <h3>Quần short nam - Thoáng khí</h3>
+          <div class="price"><div class="new">149.000₫</div><div class="old">249.000₫</div></div>
+          <div class="meta"><span>Đổi trả nhanh</span><button class="btn buy-btn">Mua ngay</button></div>
+        </article>
+
+        <article class="card">
+          <div class="badges"><span class="badge">NEW</span></div>
+           <img src="images/mũ-tt.png" alt="product">
+           <h3>Mũ thể thao - Thoải mái</h3>
+          <div class="price"><div class="new">89.000đ</div><div class="old">100.000đ</div></div>
+          <div class="meta"><span>1 đổi 1 trong 7 ngày</span><button class="btn buy-btn">Mua ngay</button></div>
+        </article>
+        
+        <article class="card">
+          <div class="badges"><span class="badge">SALE</span></div>
+           <img src="images/cặp-kiểu-trẻ.png" alt="product">
+           <h3>Cặp kiểu dáng trẻ trung</h3>
+          <div class="price"><div class="new">199.000đ</div><div class="old">299.000đ</div> </div>
+          <div class="meta"><span>Miễn phí vận chuyển</span><button class="btn buy-btn">Mua ngay</button> </div>
+        </article>
+
+
+        <article class="card">
+          <div class="badges"><span class="badge">HOT</span> </div>
+           <img src="images/quần-jean-ống-rộng.png" alt="product">
+           <h3>Quần jean from ống rộng</h3>
+          <div class="price"><div class="new">165.000đ</div><div class="old">210.000đ</div> </div>
+          <div class="meta"><span>Sale hot</span><button class="btn buy-btn">Mua ngay</button></div>
+        </article>
+
+        <article class="card">
+          <div class="badges"><span class="badge">HOT</span> </div>
+           <img src="images/áo-sweater-noel-cặp.png" alt="product">
+           <h3>Áo sweatar noel cặp đôi</h3>
+          <div class="price"><div class="new">200.000đ</div><div class="old">210.000đ</div> </div>
+          <div class="meta"><span>Sale hot</span><button class="btn buy-btn">Mua ngay</button></div>
+        </article>
+
+      </div>
+    </search>
+    
+    <div class="small-banners">
+      <div class="item" style="background-image: url(images/anh-top-san-pham.png);">
+        <span>Top sản phẩm</span>
+      </div>
+      <div class="item" style="background-image: url(images/campaigns.png) ;">
+        <span>campaigns</span>
+      </div>
+      <div class="item" style="background-image: url(images/lookbook.png);">
+        <span>lookbook</span>
+      </div>
+    </div>
+
+    <section class="featured">
+      <div class="heading"><h2>TOP SẢN PHẨM BÁN CHẠY</h2><div>Xem tất cả &raquo;</div></div>
+      <div class="grid">
+        <div class="card"><img src="images/vòng-cổ-thời-trang.png"><h3>Vòng cổ thời trang vàng</h3><div class="price"><div class="new">290.000₫</div><button class="btn buy-btn">Mua ngay</button> </div></div>
+        <div class="card"><img src="images/set-đồ-tập.png"><h3>Set đồ tập nữ</h3><div class="price"><div class="new">270.000₫</div><button class="btn buy-btn">Mua ngay</button>  </div></div>
+        <div class="card"><img src="images/giày-bóng-chuyền.png"><h3>Giày bóng chuyền Beyono sky Dream</h3><div class="price"><div class="new">499.000₫</div><button class="btn buy-btn">Mua ngay</button>  </div></div>
+        <div class="card"><img src="images/áo-ba-lỗ-gym.png"><h3>Áo ba lỗ tập gym nam KING</h3><div class="price"><div class="new">89.000₫</div><button class="btn buy-btn">Mua ngay</button>  </div></div>
+        <div class="card"><img src="images/vòng-tay-nam.png"><h3>Vòng tay nam phiên bản hàn quốc</h3><div class="price"><div class="new">65.000đ</div><button class="btn buy-btn">Mua ngay</button>  </div> </div>
+        <div class="card"><img src="images/vòng-tay-nữ.png"><h3>Vòng tay nữ hai lớp hình bướm bản hàn quốc</h3><div class="price"><div class="new">60.000đ</div><button class="btn buy-btn">Mua ngay</button>  </div> </div>
+        <div class="card"><img src="images/giày-sneaker-chính-hãng.png"><h3>Giày sneaker chính hãng</h3><div class="price"><div class="new">320.000đ</div><button class="btn buy-btn">Mua ngay </button>  </div></div>
+        <div class="card"><img src="images/áo-khoác-hoodie.png"><h3>Áo khoác Hoodie Nam Nữ form rộng - Basic Oversize Zip-Up</h3><div class="price"><div class="new">126.000đ</div><button class="btn buy-btn">Mua ngay</button> </div> </div>
+      </div>
+    </section>
+
+    <div class="big-banner">
+      <div class="left"><h2>NEW COLLECTION</h2><p>CÁC LOẠI GIÀY SNEAKER - Giảm sốc trong tuần</p></div>
+      <img src="images/các-loại-sneaker.png" alt="">
+    </div>
+
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<body>
+
+<section class="testimonial">
+    <div class="testimonial-overlay">
+        <div class="container">
+            <h2 class="title">
+                KHÁCH HÀNG NÓI VỀ CHÚNG TÔI
+                <span></span>
+            </h2>
+            <p class="sub-title">
+                Hơn +50,000 khách hàng đang sử dụng cảm nhận như thế nào về
+                VTQ Fashion - Thời trang, phụ kiện thời trang.
+            </p>
+
+            <div class="testimonial-slider">
+              <div class="slider-wrapper" id="slider"></div>
+                <!-- Card 1 -->
+                <div class="testimonial-item">
+                    <div class="avatar">
+                        <img src="images/avatar1.png" alt="Phan Minh Nhật">
+                    </div>
+                    <div class="content">
+                        <h4>Phan Minh Nhật</h4>
+                        <span>Developer</span>
+                        <p>
+                            "Tôi đã lựa chọn VTQ Fashion để dành tặng cho người yêu
+                            của mình những món quà thật ý nghĩa. Tôi rất hài lòng
+                            với dịch vụ chuyên nghiệp, chất lượng sản phẩm cũng
+                            như sự tận tình của VTQ Fashion. Chắc chắn tôi sẽ quay
+                            lại nhiều lần nữa."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="testimonial-item">
+                    <div class="avatar">
+                        <img src="images/avatar2.png" alt="Nguyễn Quỳnh Anh">
+                    </div>
+                    <div class="content">
+                        <h4>Nguyễn Thị Quỳnh Anh</h4>
+                        <span>Customer Service</span>
+                        <p>
+                            "Rất thích đồ của VTQ Fashion, trước toàn ra mua trực
+                            tiếp, lần này đặt hàng online, được 2 hôm là có hàng,
+                            chuẩn mẫu mã, ship nhanh và chất lượng bền tốt nữa.
+                            Tôi sẽ quay lại mua nữa."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="testimonial-item">
+                  <div class="avatar">
+                    <img src="images/avatar3.png" alt="">
+                  </div>
+                  <div class="content">
+                    <h4>Lê Minh TRiết</h4>
+                    <span>customer</span>
+                    <p>
+                      "Sản phẩm đẹp, mặc rất thoải mái, dịch vụ chăm sóc khách hàng tốt."
+                    </p>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer class="footer">
+    <div class="footer-container">
+
+        <!-- Cột 1 -->
+        <div class="footer-col">
+            <div class="logo-vtq">
+                <span class="vtq">VTQ</span>
+                <span class="fashion">FASHION</span>
+            </div>
+            <p>
+                VTQ Fashion - Nhà bán lẻ & phân phối thương hiệu
+                các mặt hàng thời trang như quần áo, phụ kiện, giày dép, đồ tập gym,... với chất
+                lượng hàng đầu tại Việt Nam.
+            </p>
+
+            <div class="social">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-tiktok"></i>
+            </div>
+        </div>
+
+        <!-- Cột 2 -->
+        <div class="footer-col">
+            <h4>LIÊN HỆ</h4>
+            <p><b>Địa chỉ:</b> 123 Nguyễn Văn A, TP.Vinh</p>
+            <p><b>Điện thoại:</b> 0909 999 999</p>
+            <p><b>Zalo:</b> 0909 999 999</p>
+            <p><b>Email:</b> vtqFashion@gmail.com</p>
+
+            <button class="store-btn">
+                <i class="fa fa-home"></i> Chuỗi cửa hàng VTQ Fashion
+            </button>
+        </div>
+
+        <!-- Cột 3 -->
+        <div class="footer-col">
+            <h4>CHÍNH SÁCH</h4>
+            <ul>
+                <li>Chính sách mua hàng</li>
+                <li>Chính sách thanh toán</li>
+                <li>Chính sách vận chuyển</li>
+                <li>Chính sách bảo mật</li>
+                <li>Cam kết cửa hàng</li>
+                <li>Chính sách thành viên</li>
+            </ul>
+        </div>
+
+        <!-- Cột 4 -->
+        <div class="footer-col">
+            <h4>HƯỚNG DẪN</h4>
+            <ul>
+                <li>Hướng dẫn mua hàng</li>
+                <li>Hướng dẫn đổi trả</li>
+                <li>Hướng dẫn chuyển khoản</li>
+                <li>Hướng dẫn trả góp</li>
+                <li>Hướng dẫn giao hàng</li>
+                <li>Kiểm tra đơn hàng</li>
+            </ul>
+        </div>
+
+    </div>
+</footer>
+<script>
+function addToCart(id, name, price, image) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let found = cart.find(item => item.id === id);
+
+    if (found) {
+        found.quantity += 1;
+    } else {
+        cart.push({
+            id: id,
+            name: name,
+            price: price,
+            image: image,
+            quantity: 1
+        });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    // 👉 CHUYỂN SANG TRANG GIỎ HÀNG
+    window.location.href = "GioHang.html";
+}
+</script>
+
+
+</body>
+</html>
+<script>
+function goSearch() {
+    let keyword = document.getElementById("searchInput").value.trim();
+
+    if (keyword !== "") {
+        window.location.href = "TimKiem.html?keyword=" + encodeURIComponent(keyword);
+    }
+}
+</script>
+<script>
+const allProducts = document.querySelectorAll(".product");
+
+function filterCategory(category) {
+  allProducts.forEach(product => {
+    if (product.dataset.category === category) {
+      product.style.display = "block";
+    } else {
+      product.style.display = "none";
+    }
+  });
+}
+</script>
+
+
+<script src="js/GioHang.js"></script>
+</body>
+</html>
